@@ -1,0 +1,30 @@
+<template>
+  <div>
+      <input
+        v-model="colorCode"
+        placeholder="Enter color code"
+        type="text"
+       >
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'ColorInput',
+    computed: {
+    colorCode: {
+      get() {
+        return this.$store.state.colorCode
+      },
+      set(newValue) {
+        //Triggeraa aina, kun inputtiin tulee muutoksia
+        this.$store.dispatch('setColorCode', newValue)
+      }
+    }
+  },
+}
+</script>
+
+<style>
+
+</style>
